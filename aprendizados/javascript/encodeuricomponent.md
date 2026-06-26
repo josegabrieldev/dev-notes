@@ -1,29 +1,29 @@
 # encodeURIComponent()
 
-> Função nativa do JavaScript utilizada para codificar partes de uma URL, tornando caracteres especiais seguros para serem enviados em links.
+> Função nativa do JavaScript utilizada para codificar uma string para que ela possa ser utilizada com segurança como parte de uma URL.
 
 ---
 
 ## O que é
 
-A função `encodeURIComponent()` converte caracteres especiais de uma string para um formato compatível com URLs.
+`encodeURIComponent()` é uma função nativa do JavaScript que converte caracteres especiais de uma string para um formato compatível com URLs.
 
-Isso é útil quando um texto possui:
+Ela é muito útil quando um texto contém:
 
-- Espaços
-- Acentos
-- Símbolos especiais
-- Emojis
-- Caracteres que podem quebrar uma URL
+- espaços;
+- acentos;
+- símbolos especiais;
+- emojis;
+- ou qualquer caractere que possa alterar ou quebrar uma URL.
 
-Em vez de enviar o texto original, a função retorna uma versão codificada.
+Em vez de utilizar o texto original, a função retorna uma versão codificada que pode ser enviada com segurança como parte da URL.
 
 ---
 
 ## Sintaxe
 
 ```javascript
-encodeURIComponent(texto);
+encodeURIComponent(valor);
 ```
 
 ---
@@ -44,28 +44,34 @@ Saída:
 Ol%C3%A1%2C%20tudo%20bem%3F
 ```
 
-Essa versão pode ser utilizada com segurança dentro de uma URL.
+No meu caso, utilizei a função apenas para gerar o texto codificado.
+
+```javascript
+const mensagem = "Olá! Gostaria de conversar sobre um projeto.";
+
+const mensagemCodificada = encodeURIComponent(mensagem);
+
+console.log(mensagemCodificada);
+```
+
+Depois de obter o resultado, copiei o texto codificado e o utilizei diretamente nos links do WhatsApp e do e-mail do meu Portfolio.
 
 ---
 
 ## Diferença entre encodeURIComponent() e encodeURI()
 
-Embora os nomes sejam parecidos, possuem finalidades diferentes.
+As duas funções possuem objetivos parecidos, mas são utilizadas em situações diferentes.
 
 ### encodeURIComponent()
 
-Codifica praticamente todos os caracteres especiais.
-
-Ideal para codificar:
-
-- parâmetros de URL
-- mensagens
-- valores enviados na query string
+Utilize quando precisar codificar apenas uma parte da URL, como um parâmetro ou uma mensagem.
 
 Exemplo:
 
 ```javascript
-encodeURIComponent("Olá, tudo bem?");
+const mensagem = "Olá, tudo bem?";
+
+encodeURIComponent(mensagem);
 ```
 
 Resultado:
@@ -78,9 +84,9 @@ Ol%C3%A1%2C%20tudo%20bem%3F
 
 ### encodeURI()
 
-Codifica apenas os caracteres necessários para manter uma URL válida.
+Utilize quando quiser codificar uma URL inteira.
 
-Não altera caracteres que fazem parte da estrutura da URL, como:
+Ela preserva caracteres que fazem parte da estrutura da URL, como:
 
 ```text
 :
@@ -91,35 +97,69 @@ Não altera caracteres que fazem parte da estrutura da URL, como:
 #
 ```
 
-Por isso, é indicado quando você deseja codificar uma URL inteira, e não apenas um trecho dela.
+Por isso, normalmente ela é utilizada quando a URL completa já está montada.
 
 ---
 
 ## Quando usar
 
-Utilize `encodeURIComponent()` sempre que precisar inserir um texto dentro de uma URL.
+Utilize `encodeURIComponent()` quando precisar adicionar um texto dentro de uma URL.
 
-Exemplos:
+Alguns exemplos:
 
-- mensagens do WhatsApp
-- parâmetros de pesquisa
-- nomes de usuários
-- textos digitados pelo usuário
-- filtros enviados pela URL
+- mensagens do WhatsApp;
+- links de e-mail (`mailto`);
+- parâmetros de pesquisa;
+- filtros enviados pela URL;
+- textos digitados pelo usuário;
+- parâmetros enviados em requisições GET.
 
 ---
 
-## Aprendizado prático
+## Contexto do aprendizado
 
-Aprendi essa função ao resolver um problema em um projeto onde uma mensagem contendo caracteres acentuados era inserida diretamente na URL.
+Aprendi `encodeURIComponent()` enquanto desenvolvia meu Portfolio.
 
-Ao utilizar `encodeURIComponent()`, a mensagem passou a ser codificada corretamente, evitando problemas com caracteres especiais.
+Eu estava adicionando links para contato por WhatsApp e e-mail com uma mensagem personalizada.
+
+Como essa mensagem possuía espaços e caracteres com acento, descobri que não era uma boa prática colocá-la diretamente na URL.
+
+Pesquisando sobre o problema, encontrei a função `encodeURIComponent()`, que codificou o texto corretamente. Depois disso, bastou copiar o resultado gerado e utilizá-lo diretamente nos links do HTML.
+
+Durante esse processo também aprendi a diferença entre `encodeURIComponent()` e `encodeURI()`.
+
+---
+
+## Observações
+
+- `encodeURIComponent()` não cria uma URL.
+- Ela apenas codifica uma string para que ela possa fazer parte de uma URL.
+- O resultado pode ser utilizado em links, parâmetros de URL e outros locais onde seja necessário enviar texto pela URL.
 
 ---
 
 ## Resumo
 
 - ✔ É uma função nativa do JavaScript.
-- ✔ Codifica partes de uma URL.
+- ✔ Codifica uma string para ser utilizada com segurança em uma URL.
 - ✔ Evita problemas com espaços, acentos e caracteres especiais.
+- ✔ É indicada para parâmetros e valores enviados pela URL.
 - ✔ Para codificar uma URL inteira, normalmente utiliza-se `encodeURI()`.
+
+---
+
+## Palavras-chave
+
+- JavaScript
+- encodeURIComponent
+- encodeURI
+- URL
+- codificação de URL
+- caracteres especiais
+- acentos
+- espaços
+- query string
+- parâmetros de URL
+- requisição GET
+- API
+- WhatsApp
