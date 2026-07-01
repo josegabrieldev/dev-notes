@@ -1,0 +1,124 @@
+# Formspree
+
+> Serviço que permite enviar formulários de um projeto front-end sem a necessidade de criar um back-end próprio.
+
+---
+
+## Por que existe?
+
+Quando um formulário HTML é enviado, alguém precisa receber esses dados e processá-los.
+
+Em projetos que possuem um back-end próprio, essa responsabilidade fica com o servidor da aplicação.
+
+Já em projetos apenas com HTML, CSS e JavaScript, não existe um servidor para fazer esse trabalho.
+
+O Formspree existe justamente para preencher essa necessidade: ele recebe os dados enviados pelo formulário e realiza o processamento sem que seja necessário criar um back-end.
+
+---
+
+## O que é
+
+O Formspree é um serviço de terceiros que funciona como o back-end de um formulário.
+
+Quando o usuário envia um formulário, os dados são enviados para os servidores do Formspree.
+
+Depois disso, ele processa essas informações e as encaminha para o e-mail configurado na conta.
+
+Isso permite que um projeto totalmente front-end possua um formulário funcional sem precisar desenvolver e hospedar um servidor próprio.
+
+---
+
+## Como funciona
+
+O fluxo de envio fica assim:
+
+```text
+Usuário preenche o formulário
+
+        ↓
+
+Clica em Enviar
+
+        ↓
+
+O navegador envia os dados para o Formspree
+
+        ↓
+
+O Formspree recebe e processa os dados
+
+        ↓
+
+O Formspree envia a mensagem para o e-mail configurado
+
+        ↓
+
+O navegador recebe uma resposta
+```
+
+Caso exista um campo `_next`, o próprio Formspree também pode redirecionar o usuário para outra página após o envio.
+
+---
+
+## Quando usar
+
+O Formspree é uma boa opção quando:
+
+- o projeto é apenas front-end;
+- não existe um back-end próprio;
+- é necessário colocar um formulário em produção rapidamente;
+- o objetivo é evitar criar um servidor apenas para processar formulários.
+
+---
+
+## Contexto do aprendizado
+
+Aprendi melhor o funcionamento do Formspree enquanto fazia melhorias no formulário de contato do meu Portfolio.
+
+Até então, eu acreditava que sua principal função era proteger meu e-mail contra spam.
+
+Durante uma conversa com minha IA mentora, descobri que essa proteção é apenas um recurso adicional.
+
+Na prática, o principal papel do Formspree é funcionar como um servidor que recebe os dados enviados pelo formulário e os encaminha para o meu e-mail.
+
+Também aprendi que o redirecionamento para uma página de agradecimento acontece porque o próprio Formspree processa o envio e pode redirecionar o navegador para a URL definida no campo `_next`.
+
+Esse entendimento me ajudou a tomar uma decisão melhor sobre a evolução do projeto.
+
+---
+
+## Observações
+
+- O Formspree substitui temporariamente um back-end próprio para formulários.
+- O navegador continua enviando o formulário normalmente; quem muda é o destino da requisição.
+- Recursos como proteção contra spam são funcionalidades adicionais, não sua principal finalidade.
+- No futuro, pretendo substituir o Formspree por um back-end desenvolvido por mim.
+
+---
+
+## Resumo
+
+- ✔ O Formspree funciona como um back-end para formulários.
+- ✔ Ele recebe os dados enviados pelo formulário.
+- ✔ Processa essas informações e as encaminha para o e-mail configurado.
+- ✔ Também pode controlar o redirecionamento após o envio.
+- ✔ É uma ótima solução para projetos apenas com front-end.
+
+---
+
+## Palavras-chave
+
+- Formspree
+- formulário
+- formulário HTML
+- front-end
+- back-end
+- servidor
+- envio de e-mail
+- contato
+- Portfolio
+- action
+- submit
+- _next
+- redirecionamento
+- serviço de terceiros
